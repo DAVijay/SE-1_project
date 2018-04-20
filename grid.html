@@ -1,0 +1,98 @@
+<html>
+<head><title>Grid</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>  
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="grid.js"></script></head>
+<body onload="createTable()">
+<!-- <form name="tablegen">
+<label>Rows: <input type="text" name="rows" id="rows"/></label><br />
+<label>Columns: <input type="text" name="cols" id="cols"/></label><br/>
+<input name="generate" type="button" value="Create Table!" onclick='createTable();'/> -->
+<div class="container">
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">My First Game</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <!-- <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li> -->
+    </ul>
+  </div>
+</nav>
+
+<!--<div class="row">
+  
+    <div class="col-md-6">
+      
+<div class="form-group">
+  <label for="usr" >rows:</label>
+  <input type="text" id="rows" class="form-control" value="3">
+
+  <label for="pwd">columns:</label>
+  <input type="text" id="cols" class="form-control" value="3" >
+
+</div>
+  </div>
+</div>-->
+<div class="row">
+  <div class="col-md-12">
+<!--<button type="button" class="btn btn-success" onclick='createTable();'>Start Game</button>-->
+<button type="button" class="btn btn-danger" onclick="resetField()">Reset</button>  
+<!--<button type="button" class="btn btn-success" onclick="readFile()">click</button>-->
+
+
+<!--<button type="button" class="btn btn-success" onclick="readFile()">click</button>-->
+<button type="button" class="btn btn-success" onclick="check()">Check</button>  
+<div>
+<label for="usr" >Correct words</label>
+<p id="correctWord">0</p>
+</div>
+<div>
+<label for="usr" >Wrong Words:</label>
+  
+<p id="wrongWord">0</p>
+
+<label for="usr" >time:</label>
+<p id="mycounter">0</p>
+
+</div>
+<div>
+<label for="scr" >Score :</label>
+<p id="Score">0</p>
+</div>
+
+</div>
+</div>
+  <div class="row">
+  <div class="col-md-6">
+ 
+    <label for="inputsm">Small input</label>
+    <input class="form-control input-sm" id="selectedInput" type="text">
+  </div>
+  </div>
+
+<div class="row">
+  <div class="col-md-6">
+<div id="wrapper"></div>
+  </div>
+</div>
+
+</body>
+</html>
+</div>
+<script>
+function myFunction() {
+    setTimeout(function(){ alert("Hello"); }, 3000);
+}
+</script>
