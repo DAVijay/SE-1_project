@@ -30,25 +30,56 @@ function checkTheWordInDict()
 	//loadFile()
 	var val = document.getElementById('selectedInput').value;
 	var isPresent=spellcheck(val);
+if(val)
+{
 	if(isPresent)  {
 		correctWord=correctWord+1; 
 		Score=Score+10;
 		$('#correctWord').html(correctWord.toString());
 		$('#Score').html(Score.toString()); 
-
-		alert("congratulations you are win this game");
-	}else{
+		//$('#tab').removeClass('disabled');
+		resetField1();
+		alert("congratulations..!! Correctword");
+		
+	}
+	else{
 		wrongWord=wrongWord+1;
 		Score=Score-5;
 		$('#Score').html(Score.toString());
 		$('#wrongWord').html(wrongWord.toString()); 
 
 		//     document.getElementById('wrongWord').value=wrongWord; 
-
-		alert("sorry !!! please try again");
+		resetField1();
+		alert("sorry !!! Wrongword");
 	}
-
-	resetField();
+      var tbody = '';
+	var theader = '<div><table id="tab" class="table table-bordered" border="1">\n';
+	for( var i=0; i<3; i++){
+		tbody += `<tr id="tr`+i+`">`;
+			for( var j=0; j<3; j++)
+			{
+				tbody += `<td id="td`+j+`">`;
+				var letter = document.getElementById("tab").rows[i].cells[j].innerHTML;; 
+			tbody +=''+letter;
+			//tbody += '</td>'+ letter + '</td>';
+		}
+		tbody += '</tr>\n';
+		//     }
+}
+		var tfooter = '</table></div>';
+		document.getElementById('wrapper').innerHTML = theader + tbody + tfooter;
+getData();
+}
+else
+alert("Select Something");
+if(correctWord==3)
+			{
+			alert("congratulation....!!!!!! YOU WON.");
+			alert(Score);
+			counter=-1;
+			$('#tab').addClass("disabled");
+			$('#tab').css({'background-color': '#ddd','cursor': 'not-allowed'});
+			}	
 }
 
 //var table=['asdifkenhsq','asdifkenhsq','asdifkenhsq','asdifkenhsq','asdifkenhsq','asdifkenhsq','asdifkenhsq'];
@@ -85,21 +116,28 @@ var counter = 60;
 function startTimer() {
 	document.getElementById('mycounter').innerHTML = counter;
 	counter--;
-	if (counter < 0 ) {
-		alert('game Over!');
+	if (counter == 0 ) {
+		alert('game Over!!! YOU LOST');
 		$('#tab').addClass("disabled");
 		$('#tab').css({'background-color': '#ddd',
 				'cursor': 'not-allowed'});
 		return;
 	}
+if(counter<-1)
+{
+		$('#tab').addClass("disabled");
+		$('#tab').css({'background-color': '#ddd',
+				'cursor': 'not-allowed'});
+		return;
+}
 	else {
 		timer=setTimeout(startTimer, 1000);
 	}
 }
 function createTable()
 {
-	//alert("increate");
-	counter=60
+	alert("To WIn Game make 3 Correctwords in 60 seconds....");
+	counter=60;
 		clearTimeout(timer);;
 	// $("#tab").removeClass()
 	startTimer();
@@ -146,7 +184,7 @@ function getData(){
 							'cursor': 'not-allowed'});
 					}
 					else
-					counter=0;
+					alert("U cant use IT..!!!!!");
 					//   $("#selectedInput").html(prevText+''+curWord);
 
 					return false; // avoid parents divs if you have nested divs
@@ -156,23 +194,18 @@ function getData(){
 
 function resetField()
 {
-	// createTable();
-	//     document.getElementById('rows').value="";
-	//     document.getElementById('cols').value="";     
+	correctWord=0;
+	wrongWord=0;
+	Score=0;
+	document.getElementById('selectedInput').value="";
+	$('#correctWord').html(correctWord.toString());
+		$('#Score').html(Score.toString()); 
+	$('#wrongWord').html(wrongWord.toString());
+	createTable();
+}
+
+function resetField1()
+{    
 	document.getElementById('selectedInput').value=""; 
-	//     document.getElementById('wrapper').value=""; 
-
 
 }
-
-function readFile()
-{
-	$(document).ready(function(){
-			$("button").click(function(){
-					$("#filedata").load("file.txt");
-					});
-			});
-	alert(fileData);
-
-}
-
